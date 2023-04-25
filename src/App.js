@@ -7,8 +7,11 @@ function App() {
   const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = async (event) => {
+    const api = 'https://meowfacts.herokuapp.com/'
     setIsLoading(true)
-    // TODO
+    const response = await fetch(api)
+    const { data } = await response.json()
+    setQuote((prev) => prev = data)
     setIsLoading(false)
   }
 
